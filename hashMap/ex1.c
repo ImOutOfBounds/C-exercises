@@ -31,6 +31,17 @@ Hash* criaHash(int TABLE_SIZE) {
     return ha;
 }
 
+int chaveDivisao(int chave, int TABLE_SIZE) {
+    return (chave & 0x7FFFFFFF) % TABLE_SIZE;
+} 
+
+int chaveMultiplicacao(int chave, int TABLE_SIZE) {
+    float A = 0.6180339887; // constranteb entre 0 e 1
+    float val = chave * A;
+    val = val - (int) val;
+    return (int) (TABLE_SIZE * val); 
+}
+
 void main() {
-    
+
 }
